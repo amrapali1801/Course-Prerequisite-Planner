@@ -1,0 +1,85 @@
+# KKWIEER Nashik | B.Tech Computer Engineering | 2023 Pattern | 172 credits, 8 semesters
+# Year|Sem|Code|Name|Credits|Type|ElectiveGroup|PrereqCodes|ReferenceBook|BookSource
+# BookSource: S = listed in syllabus, G = suggested famous book (verify), N = not specified
+1|1|2300101A|Linear Algebra and Differential Calculus|4|BSC|-|-|B.V. Ramana - Higher Engineering Mathematics (Tata McGraw-Hill)|S
+1|1|2300104A|Applied Chemistry|4|BSC|-|-|O.G. Palanna - Engineering Chemistry (Tata McGraw-Hill)|S
+1|1|2300105A|Fundamentals of Electrical Engineering|4|ESC|-|-|B.L. Theraja and A.K. Theraja - A Textbook of Electrical Technology, Vol. I (S. Chand)|S
+1|1|2300108A|Programming in C|2|ESC|-|-|Yashavant Kanetkar - Let Us C (BPB Publications)|S
+1|1|2300112A|Communication Skills|2|AEC|-|-|Gajendra Singh Chauhan and Sangeeta Sharma - Soft Skills: An Integrated Approach to Maximize Personality (Wiley India)|S
+1|1|2300111A|Workshop Practice|2|VSEC|-|-|S.K. Hajra Choudhury - Elements of Workshop Technology, Vol. I (Media Promoters)|G
+1|1|2300115A|Sports, Yoga and Art|2|CC|-|-|B.K.S. Iyengar - Light on Yoga (HarperCollins)|G
+1|2|2300102A|Differential Equations and Integral Calculus|4|BSC|-|-|B.S. Grewal - Higher Engineering Mathematics (Khanna Publishers)|S
+1|2|2300103A|Applied Physics (A)|4|BSC|-|-|M.N. Avadhanulu and P.G. Kshirsagar - A Textbook of Engineering Physics (S. Chand)|S
+1|2|2300107A|Fundamentals of Electronics Engineering|4|ESC|-|-|Thomas L. Floyd - Electronic Devices (Pearson)|S
+1|2|2300110A|Engineering Drawing|2|ESC|-|-|N.D. Bhatt and V.M. Panchal - Engineering Drawing (Charotar Publishing)|S
+1|2|2300118A|Computational Thinking and Problem Solving|2|PCC|-|-|Karl Beecher - Computational Thinking: A Beginner's Guide to Problem-Solving and Programming (BCS)|S
+1|2|2300116A|Indian Knowledge System|2|IKS|-|-|B. Mahadevan, V.R. Bhat and Nagendra Pavana R.N. - Introduction to Indian Knowledge System: Concepts and Applications (PHI)|G
+1|2|2300117A|Python Programming|2|VSEC|-|2300108A|Reema Thareja - Python Programming Using Problem Solving Approach (Oxford University Press)|S
+1|2|2300115B|Engineering Exploration|2|CC|-|-|Clive L. Dym and Patrick Little - Engineering Design: A Project-Based Introduction (Wiley)|G
+2|3|2301201|Discrete Structures|3|PCC|-|2300101A|Kenneth H. Rosen - Discrete Mathematics and its Applications (Tata McGraw-Hill)|S
+2|3|2301202|Operating Systems|3|PCC|-|-|Silberschatz, Galvin and Gagne - Operating System Concepts (Wiley)|S
+2|3|2301203|Computer Graphics|3|PCC|-|2300101A|Steven Harrington - Computer Graphics: A Programming Approach (McGraw-Hill)|S
+2|3|2301204|Operating Systems Lab|1|PCC|-|2300108A|Silberschatz, Galvin and Gagne - Operating System Concepts (Wiley)|S
+2|3|2301205|Object Oriented Programming and Computer Graphics Lab|2|PCC|-|2300108A,2300118A|E. Balagurusamy - Object-Oriented Programming with C++ (McGraw-Hill)|G
+2|3|2301206|Digital Electronics and Logic Design|3|MDM|-|2300107A|R.P. Jain - Modern Digital Electronics (Tata McGraw-Hill)|S
+2|3|2301207|Digital Electronics Lab|1|MDM|-|2300107A|R.P. Jain - Modern Digital Electronics (Tata McGraw-Hill)|S
+2|3|2301208|Digital Marketing|2|OE|-|-|Philip Kotler - Marketing 4.0: Moving from Traditional to Digital (Wiley)|S
+2|3|2301209|Democracy, Election and Governance|2|VEC|-|-|D.D. Basu - Introduction to the Constitution of India (LexisNexis)|S
+2|3|2301210|Design Thinking|2|VSEC|-|2300115B|Gavin Ambrose and Paul Harris - Design Thinking (AVA Publishing)|S
+2|4|2300211A|Probability and Statistics|3|BSC|-|-|S.C. Gupta and V.K. Kapoor - Fundamentals of Mathematical Statistics (S. Chand)|S
+2|4|2301212|Data Structures|3|PCC|-|2300118A|Horowitz, Sahni and Mehta - Fundamentals of Data Structures in C++ (Galgotia)|S
+2|4|2301213|Software Engineering|3|PCC|-|2300118A|Roger Pressman - Software Engineering: A Practitioner's Approach (McGraw-Hill)|S
+2|4|2301214|Java Programming Lab|1|PCC|-|2300118A,2301205|Herbert Schildt - Java: The Complete Reference (McGraw-Hill)|G
+2|4|2301215|Data Structures Lab|2|PCC|-|2300118A,2300108A|Horowitz, Sahni and Mehta - Fundamentals of Data Structures in C++ (Galgotia)|S
+2|4|2301216|Data Communication and Networking|3|MDM|-|2301201|Behrouz A. Forouzan - Data Communications and Networking (Tata McGraw-Hill)|S
+2|4|2301217|Data Communication and Networking Lab|1|MDM|-|2300108A,2300117A|Behrouz A. Forouzan - Data Communications and Networking (Tata McGraw-Hill)|S
+2|4|2301218|Customer Relationship Management|2|OE|-|-|Francis Buttle and Stan Maklan - Customer Relationship Management: Concepts and Technologies (Routledge)|S
+2|4|2301219|Universal Human Values|2|VSEC|-|-|R.R. Gaur, R. Asthana and G.P. Bagaria - A Foundation Course in Human Values and Professional Ethics (Excel Books)|S
+2|4|2301220|Foreign Language|2|AEC|-|-|Not specified in syllabus|N
+3|5|2301301|Data Structures and Algorithms|3|PCC|-|2301212,2301201|Cormen, Leiserson, Rivest and Stein - Introduction to Algorithms (MIT Press)|S
+3|5|2311302|Artificial Intelligence|3|PCC|-|2301212|Stuart Russell and Peter Norvig - Artificial Intelligence: A Modern Approach (Pearson)|S
+3|5|2301303|Database Management Systems|3|PCC|-|2301212|Silberschatz, Korth and Sudarshan - Database System Concepts (McGraw-Hill)|S
+3|5|2301304|Database Management Systems Lab|1|PCC|-|2301212|C.J. Date - An Introduction to Database Systems (Addison-Wesley)|S
+3|5|2301305|Data Structures and Algorithms Lab|1|PCC|-|2301215|Sartaj Sahni - Data Structures, Algorithms and Applications in C++ (University Press)|S
+3|5|2301306A|Internet of Things|3|PEC|Elective I|2301206|Arshdeep Bahga and Vijay Madisetti - Internet of Things: A Hands-on Approach (Universities Press)|S
+3|5|2301306B|Augmented Reality and Virtual Reality|3|PEC|Elective I|2301212,2301203,2301215,2301205|Steve Aukstakalnis - Practical Augmented Reality (Addison-Wesley)|S
+3|5|2301306C|Software Testing and Quality Assurance|3|PEC|Elective I|2301213|Srinivasan Desikan and Gopalaswamy Ramesh - Software Testing: Principles and Practices (Pearson)|S
+3|5|2301307A|Internet of Things Lab|1|PEC|Elective I Lab|2301206,2301207|Arshdeep Bahga and Vijay Madisetti - Internet of Things: A Hands-on Approach (Universities Press)|S
+3|5|2301307B|Augmented Reality and Virtual Reality Lab|1|PEC|Elective I Lab|2301212,2301203,2301215,2301205|Steve Aukstakalnis - Practical Augmented Reality (Addison-Wesley)|S
+3|5|2301307C|Software Testing and Quality Assurance Lab|1|PEC|Elective I Lab|2301213|Srinivasan Desikan and Gopalaswamy Ramesh - Software Testing: Principles and Practices (Pearson)|S
+3|5|2301308|Management Information Systems|2|OE|-|2301218|Waman S. Jawadekar - Management Information Systems (McGraw-Hill)|S
+3|5|2301309|Computer Organization and Architecture|3|MDM|-|2301206|William Stallings - Computer Organization and Architecture: Designing for Performance (Pearson/PHI)|S
+3|5|2301310|Project Based Learning|2|CEP|-|-|Sharon J. Gerson and Steven M. Gerson - Technical Writing: Process and Product (Pearson)|S
+3|6|2301311|Data Science and Big Data|3|PCC|-|2301303|Jiawei Han, Micheline Kamber and Jian Pei - Data Mining: Concepts and Techniques (Elsevier)|S
+3|6|2301312|Theory of Computation|3|PCC|-|2301201|Hopcroft, Motwani and Ullman - Introduction to Automata Theory, Languages and Computation (Addison-Wesley)|S
+3|6|2301313|Data Science and Big Data Lab|1|PCC|-|2301304|Jiawei Han, Micheline Kamber and Jian Pei - Data Mining: Concepts and Techniques (Elsevier)|S
+3|6|2301314A|User Interface and User Experience|3|PEC|Elective II|2301210|Jon Yablonski - Laws of UX (O'Reilly)|S
+3|6|2301314B|Generative AI and Prompt Engineering|3|PEC|Elective II|2311302|David Foster - Generative Deep Learning, 2nd Edition (O'Reilly)|S
+3|6|2301314C|High Performance Databases|3|PEC|Elective II|2301303|Baron Schwartz, Peter Zaitsev and Vadim Tkachenko - High Performance MySQL (O'Reilly)|S
+3|6|2301315A|Cloud Computing|3|PEC|Elective III|2301216|A. Srinivasan and J. Suresh - Cloud Computing: A Practical Approach for Learning and Implementation (Pearson)|S
+3|6|2301315B|Natural Language Processing|3|PEC|Elective III|2301201|Daniel Jurafsky and James H. Martin - Speech and Language Processing (Pearson)|S
+3|6|2301315C|High Performance Computing|3|PEC|Elective III|2301212|Ananth Grama, Anshul Gupta, George Karypis and Vipin Kumar - Introduction to Parallel Computing (Addison-Wesley)|S
+3|6|2301316|Programming Lab|1|PEC|-|-|Not specified in syllabus (follows Elective II and III)|N
+3|6|2301317|Microcontrollers and Embedded Systems|3|MDM|-|2301206|Muhammad Ali Mazidi, Janice Mazidi and Rolin McKinlay - The 8051 Microcontroller and Embedded Systems (Pearson)|S
+3|6|2301318|Project Planning and Management|2|OE|-|2301213|Bob Hughes and Mike Cotterell - Software Project Management (McGraw-Hill)|S
+3|6|2301319|Full Stack|2|VSEC|-|2301303,2301304|Jon Duckett - Web Design with HTML, CSS, JavaScript and jQuery Set (Wiley)|S
+3|6|2301320|Research Seminar|1|RM|-|-|C.R. Kothari - Research Methodology: Methods and Techniques (New Age International)|G
+4|7|2301401|Deep Learning|3|PCC|-|2301311|Ian Goodfellow, Yoshua Bengio and Aaron Courville - Deep Learning (MIT Press)|S
+4|7|2301402|Cyber Security|3|PCC|-|2301216|William Stallings - Cryptography and Network Security: Principles and Practice (Pearson)|S
+4|7|2301403|Deep Learning Lab|1|PCC|-|2301311,2301313|Ian Goodfellow, Yoshua Bengio and Aaron Courville - Deep Learning (MIT Press)|S
+4|7|2301404|Cyber Security Lab|1|PCC|-|2301217|William Stallings - Cryptography and Network Security: Principles and Practice (Pearson)|S
+4|7|2301405A|Computer Vision|3|PEC|Elective IV|2301203|Milan Sonka, Vaclav Hlavac and Roger Boyle - Image Processing, Analysis, and Machine Vision (Cengage)|S
+4|7|2301405B|Information Retrieval|3|PEC|Elective IV|2300211A|Ricardo Baeza-Yates and Berthier Ribeiro-Neto - Modern Information Retrieval (Pearson)|S
+4|7|2301405C|Business Intelligence and Analytics|3|PEC|Elective IV|2301311|Ramesh Sharda, Dursun Delen and Efraim Turban - Business Intelligence and Analytics (Pearson)|S
+4|7|2301406A|Operation Research|2|PEC|Elective V|2301212,2301201|Hamdy A. Taha - Operations Research: An Introduction (Pearson)|S
+4|7|2301406B|Unix Internals|2|PEC|Elective V|2301202|Maurice J. Bach - The Design of the Unix Operating System (Pearson)|S
+4|7|2301406C|Compiler Design|2|PEC|Elective V|2301312|Aho, Lam, Sethi and Ullman - Compilers: Principles, Techniques and Tools (Pearson)|S
+4|7|2301407|Research Methodology|3|RM|-|2301213|C.R. Kothari - Research Methodology: Methods and Techniques (New Age International)|S
+4|7|2301408|Banking, Financial Services and Insurance|2|HSSM-EEM|-|-|Peter S. Rose and Sylvia C. Hudgins - Bank Management and Financial Services (McGraw-Hill)|S
+4|7|2301409|Project Work|4|PROJ|-|-|Sharon J. Gerson and Steven M. Gerson - Technical Writing: Process and Product (Pearson)|S
+4|8|2301410|Software Architecture and Design Patterns|3|PCC|-|2301213|Len Bass, Paul Clements and Rick Kazman - Software Architecture in Practice (Addison-Wesley)|S
+4|8|2301411A|Blockchain|3|PEC|Elective VI|-|Andreas Antonopoulos - Mastering Bitcoin (O'Reilly)|S
+4|8|2301411B|Bioinformatics|3|PEC|Elective VI|-|Jin Xiong - Essential Bioinformatics (Cambridge University Press)|S
+4|8|2301411C|Digital Forensic|3|PEC|Elective VI|-|Bill Nelson, Amelia Phillips and Christopher Steuart - Guide to Computer Forensics and Investigations (Cengage)|S
+4|8|2301412|Startup and Entrepreneurship|2|HSSM-EEM|-|-|J. Augustin Jacob - Startup and Entrepreneurship (Royal Technical Publication)|S
+4|8|2301413|Internship|12|INTERNSHIP|-|-|Not specified in syllabus|N

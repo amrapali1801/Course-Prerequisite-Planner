@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Prerequisite Planner — KKWIEER Nashik (2023 Pattern)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-brand">
+      <div class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="5" r="3"></circle>
+          <line x1="12" y1="8" x2="6" y2="15"></line>
+          <line x1="12" y1="8" x2="18" y2="15"></line>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="18" r="3"></circle>
+        </svg>
+      </div>
+      <div>
+        <h1 class="brand-title">Course Prerequisite Planner</h1>
+        <p class="brand-subtitle">KKWIEER Nashik • B.Tech Computer Engineering (2023 Pattern) • Pure Tree DSA</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="badge badge-purple">KKWIEER Nashik</span>
+      <span class="badge badge-cyan" id="badgeTotalSummary">82 Courses • 8 Semesters • 172 Credits</span>
+      <span class="badge badge-green">Pure Trees (No Graph Algos)</span>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab-tree">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="6" y2="15"/><line x1="12" y1="8" x2="18" y2="15"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/></svg>
+      Prerequisite Tree Explorer
+    </button>
+    <button class="tab-btn" data-tab="tab-planner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      "What Can I Take Now?"
+    </button>
+    <button class="tab-btn" data-tab="tab-curriculum">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Curriculum Hierarchy (Credits)
+    </button>
+    <button class="tab-btn" data-tab="tab-concepts">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      DSA Concepts & Viva
+    </button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="app-main">
+
+    <!-- ============================================================== -->
+    <!-- TAB 1: PREREQUISITE TREE EXPLORER                              -->
+    <!-- ============================================================== -->
+    <section id="tab-tree" class="tab-pane active">
+      
+      <!-- Control Bar -->
+      <div class="control-panel card">
+        <div class="control-group">
+          <label for="courseSelect" class="control-label">Target Course (Tree Root):</label>
+          <div class="select-wrapper">
+            <select id="courseSelect" class="select-input"></select>
+          </div>
+          <input type="text" id="treeCourseFilter" placeholder="Filter courses by name or code..." class="filter-input-small">
+        </div>
+
+        <div class="control-actions">
+          <button id="btnHighlightCritical" class="btn btn-secondary" title="Highlight the critical path determining tree height">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Highlight Critical Path
+          </button>
+          <button id="btnResetTree" class="btn btn-ghost" title="Reset highlighted path">
+            Reset Highlights
+          </button>
+          <div class="zoom-controls">
+            <button id="btnZoomOut" class="btn btn-ghost btn-sm" title="Zoom Out">-</button>
+            <span id="zoomLevelLabel" class="zoom-label">100%</span>
+            <button id="btnZoomIn" class="btn btn-ghost btn-sm" title="Zoom In">+</button>
+            <button id="btnZoomReset" class="btn btn-ghost btn-sm" title="Reset Zoom">Fit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Ribbon -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="metric-value" id="valTreeHeight">0</div>
+            <div class="metric-label">Tree Height (Min Semesters)</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon cyan">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="metric-value" id="valSubtreeNodes">0</div>
+            <div class="metric-label">Subtree Nodes (Instances)</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+          </div>
+          <div>
+            <div class="metric-value" id="valUniquePrereqs">0</div>
+            <div class="metric-label">Unique Prerequisite Courses</div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon emerald">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="metric-value" id="valFoundationCount">0</div>
+            <div class="metric-label">Foundation Entry Points (Leaves)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tree Canvas Container -->
+      <div class="tree-canvas-wrapper card">
+        <div class="tree-canvas-header">
+          <div class="canvas-title">
+            <span>Visual Prerequisite Hierarchy (N-ary Tree)</span>
+            <small class="canvas-hint">• Click any course node to highlight its path to root • Large trees scroll and zoom smoothly without overlapping</small>
+          </div>
+          <div class="canvas-legend">
+            <span class="legend-item"><span class="legend-dot root-dot"></span> Target Root</span>
+            <span class="legend-item"><span class="legend-dot mid-dot"></span> Intermediate</span>
+            <span class="legend-item"><span class="legend-dot leaf-dot"></span> Foundation (Leaf)</span>
+          </div>
+        </div>
+
+        <div id="treeViewport" class="tree-viewport">
+          <div id="treeContainer" class="tree-container">
+            <svg id="treeSvg" class="tree-svg"></svg>
+            <div id="treeNodes" class="tree-nodes-layer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Node Detail Banner -->
+      <div id="nodeDetailBanner" class="node-detail-banner card" style="display: none;">
+        <div class="detail-content">
+          <div class="detail-header">
+            <h3 id="detailTitle" class="detail-title">Course Details</h3>
+            <span id="detailBadge" class="badge badge-purple">Semester 4 • 4 Credits</span>
+            <span id="detailType" class="badge badge-cyan">PCC</span>
+          </div>
+          <div class="detail-grid">
+            <div>
+              <p class="detail-sub">Reference Book:</p>
+              <p id="detailBook" class="detail-book-text">Book title</p>
+              <span id="detailBookSource" class="badge badge-amber">[Syllabus]</span>
+            </div>
+            <div>
+              <p class="detail-sub">Prerequisites:</p>
+              <div class="detail-tags" id="detailPrereqsList"></div>
+            </div>
+          </div>
+        </div>
+        <button id="btnCloseDetail" class="btn btn-ghost btn-sm">Dismiss</button>
+      </div>
+
+      <!-- Tree Analytics Bottom Grid -->
+      <div class="analytics-grid">
+        <!-- Critical Path Card -->
+        <div class="card analytics-card">
+          <div class="card-header">
+            <h3>Longest Critical Chain (Tree Height)</h3>
+            <span class="badge badge-purple">Sequential Semester Constraint</span>
+          </div>
+          <div class="card-body">
+            <p class="section-desc">The critical path is the longest root-to-leaf path that dictates the minimum semesters needed sequentially.</p>
+            <div id="criticalPathList" class="critical-path-steps"></div>
+          </div>
+        </div>
+
+        <!-- All Learning Paths Card -->
+        <div class="card analytics-card">
+          <div class="card-header">
+            <h3>All Learning Trajectories (DFS with Backtracking)</h3>
+            <span id="pathCountBadge" class="badge badge-cyan">0 Paths</span>
+          </div>
+          <div class="card-body">
+            <p class="section-desc">Every distinct path from a foundation course (leaf) up to the selected target course (root).</p>
+            <div id="learningPathsContainer" class="learning-paths-list"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 2: "WHAT CAN I TAKE NOW?" PLANNER                          -->
+    <!-- ============================================================== -->
+    <section id="tab-planner" class="tab-pane">
+      
+      <!-- Degree Progress Bar -->
+      <div class="card progress-card">
+        <div class="progress-header">
+          <div>
+            <h3>Graduation Credit Progress</h3>
+            <span class="section-desc">Elective groups count ONCE per semester (alternatives) toward graduation.</span>
+          </div>
+          <div class="progress-stats">
+            <span id="creditsProgressText" class="progress-stat-main">0 / 172 Credits</span>
+            <span id="creditsPercentBadge" class="badge badge-purple">0%</span>
+          </div>
+        </div>
+        <div class="progress-track">
+          <div id="creditsProgressBar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="planner-layout">
+        
+        <!-- Left: Course Checklist -->
+        <div class="planner-checklist card">
+          <div class="card-header">
+            <div>
+              <h3>Completed Courses Checklist</h3>
+              <p class="section-desc">Check courses you have passed. Prerequisites are evaluated live using tree traversal.</p>
+            </div>
+          </div>
+
+          <div class="quick-pass-bar">
+            <span class="quick-pass-label">Quick Presets:</span>
+            <div id="quickSemButtons" class="quick-buttons-row">
+              <!-- Dynamically generated Sem 1 .. Sem 8 buttons -->
+            </div>
+            <button id="btnClearAll" class="btn btn-sm btn-secondary">Clear All</button>
+          </div>
+
+          <div class="card-body">
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="courseFilterInput" placeholder="Filter courses by name or code..." class="filter-input">
+            </div>
+
+            <div id="checklistAccordion" class="checklist-accordion">
+              <!-- Dynamically populated semester by semester -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Eligibility Dashboard -->
+        <div class="planner-results">
+          
+          <!-- Summary Status Card -->
+          <div class="card status-overview-card">
+            <div class="status-metric">
+              <span class="status-number text-green" id="statCompletedCount">0</span>
+              <span class="status-label">Completed Courses</span>
+            </div>
+            <div class="status-metric">
+              <span class="status-number text-purple" id="statCompletedCredits">0</span>
+              <span class="status-label">Credits Earned / 172</span>
+            </div>
+            <div class="status-metric">
+              <span class="status-number text-cyan" id="statEligibleCount">0</span>
+              <span class="status-label">Eligible to Take Now</span>
+            </div>
+          </div>
+
+          <!-- Eligible Courses List Card -->
+          <div class="card eligible-card">
+            <div class="card-header">
+              <div>
+                <h3 class="text-green">Courses You Can Take Immediately</h3>
+                <p class="section-desc">All prerequisites satisfied. Grouped by semester with elective options indicated.</p>
+              </div>
+              <span id="eligibleBadge" class="badge badge-green">0 Available</span>
+            </div>
+            <div class="card-body">
+              <div id="eligibleList" class="eligible-courses-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Locked Courses Preview -->
+          <div class="card locked-card">
+            <div class="card-header">
+              <div>
+                <h3>Locked Courses (Missing Prerequisites)</h3>
+                <p class="section-desc">Courses you cannot take yet, showing required prerequisites.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="lockedList" class="locked-courses-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 3: CURRICULUM HIERARCHY (POST-ORDER CREDIT ROLLUP)         -->
+    <!-- ============================================================== -->
+    <section id="tab-curriculum" class="tab-pane">
+      
+      <div class="card curriculum-header-card">
+        <div class="curriculum-title-group">
+          <h2>Degree Curriculum Tree: B.Tech Computer Engineering (172 Credits)</h2>
+          <p class="section-desc">
+            Demonstrating <strong>Post-order Traversal Sum</strong>: Course credits aggregate bottom-up into Elective Groups (counted once), Semester totals, Year totals, and the Degree total (172 Credits).
+          </p>
+        </div>
+        <div class="curriculum-controls">
+          <input type="text" id="curriculumSearchInput" placeholder="Search curriculum courses..." class="filter-input-small">
+          <button id="btnExpandAllCurriculum" class="btn btn-secondary btn-sm">Expand All</button>
+          <button id="btnCollapseAllCurriculum" class="btn btn-ghost btn-sm">Collapse All</button>
+        </div>
+      </div>
+
+      <!-- Curriculum Tree View -->
+      <div class="card curriculum-tree-card">
+        <div id="curriculumTreeView" class="curriculum-tree-view">
+          <!-- Dynamically populated hierarchical tree -->
+        </div>
+      </div>
+
+      <!-- LCA Interactive Finder Tool -->
+      <div class="card lca-tool-card">
+        <div class="card-header">
+          <div>
+            <h3>Lowest Common Ancestor (LCA) Analyzer</h3>
+            <p class="section-desc">
+              Select two courses to find their Lowest Common Ancestor in the Curriculum Tree using parent pointer alignment.
+            </p>
+          </div>
+          <span class="badge badge-purple">Parent Pointer Traversal</span>
+        </div>
+        <div class="card-body">
+          <div class="lca-input-row">
+            <div class="select-wrapper">
+              <select id="lcaCourse1" class="select-input"></select>
+            </div>
+            <span class="lca-and">&</span>
+            <div class="select-wrapper">
+              <select id="lcaCourse2" class="select-input"></select>
+            </div>
+            <button id="btnFindLca" class="btn btn-primary">Find LCA</button>
+          </div>
+
+          <div id="lcaResultBox" class="lca-result-box" style="display: none;">
+            <div class="lca-result-header">
+              <span class="lca-node-label">Lowest Common Ancestor:</span>
+              <span id="lcaNodeName" class="lca-node-name">Semester 1</span>
+            </div>
+            <p id="lcaExplanation" class="lca-explanation">Academic relationship interpretation.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 4: DSA CONCEPTS & VIVA QUICK REFERENCE                    -->
+    <!-- ============================================================== -->
+    <section id="tab-concepts" class="tab-pane">
+      
+      <!-- Live Data Validation Panel (matching C++ checks) -->
+      <div class="card validation-card">
+        <div class="card-header">
+          <div>
+            <h3>Live Syllabus Data Validation (KKWIEER 2023 Pattern)</h3>
+            <p class="section-desc">Automated validation checks executed directly in JavaScript to match C++ startup checks.</p>
+          </div>
+          <span id="validationOverallBadge" class="badge badge-green">ALL CHECKS PASS</span>
+        </div>
+        <div class="card-body">
+          <div id="validationResultsList" class="validation-results-grid"></div>
+        </div>
+      </div>
+
+      <div class="card concepts-header-card">
+        <h2>DSA Tree Concepts Master Table</h2>
+        <p class="section-desc">
+          How each feature in this planner maps to a classic tree data structure concept and time complexity.
+        </p>
+      </div>
+
+      <!-- Concepts Table -->
+      <div class="card table-card">
+        <div class="table-responsive">
+          <table class="concepts-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Tree Data Structure Concept</th>
+                <th>Complexity</th>
+                <th>Role in KKWIEER Syllabus Project</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Prerequisite Tree Construction</strong></td>
+                <td>Recursive Tree Construction (N-ary Tree)</td>
+                <td><span class="badge badge-cyan">O(n)</span></td>
+                <td>Root is target course (e.g. Deep Learning); immediate prerequisites become children; shared nodes repeat.</td>
+              </tr>
+              <tr>
+                <td><strong>Visual Branch Display</strong></td>
+                <td>Pre-order Traversal (Root &rarr; Children)</td>
+                <td><span class="badge badge-cyan">O(n)</span></td>
+                <td>Renders parent node before children with SVG smooth Bézier curves and clean indentation.</td>
+              </tr>
+              <tr>
+                <td><strong>Minimum Semesters Needed</strong></td>
+                <td>Tree Height / Maximum Depth</td>
+                <td><span class="badge badge-cyan">O(n)</span></td>
+                <td>Height of tree equals length of longest sequential prerequisite chain (max height = 5 semesters in KKWIEER).</td>
+              </tr>
+              <tr>
+                <td><strong>Subtree Size & Counts</strong></td>
+                <td>Subtree Size (Post-order Traversal)</td>
+                <td><span class="badge badge-cyan">O(n)</span></td>
+                <td>Aggregates total tree nodes (e.g. 11 in AR &amp; VR) vs. unique prerequisite codes (7 in AR &amp; VR).</td>
+              </tr>
+              <tr>
+                <td><strong>Foundation Courses Identification</strong></td>
+                <td>Leaf-Node Identification</td>
+                <td><span class="badge badge-cyan">O(n)</span></td>
+                <td>Gathers leaf nodes with zero prerequisites (e.g. Computational Thinking, Linear Algebra). 31 courses total.</td>
+              </tr>
+              <tr>
+                <td><strong>All Learning Trajectories</strong></td>
+                <td>DFS with Backtracking</td>
+                <td><span class="badge badge-cyan">O(n &times; h)</span></td>
+                <td>Pushes courses onto DFS stack; upon reaching leaves, outputs reversed path from foundation to target.</td>
+              </tr>
+              <tr>
+                <td><strong>"What Can I Take Now?" Evaluation</strong></td>
+                <td>Tree Node Evaluation</td>
+                <td><span class="badge badge-cyan">O(C &times; k)</span></td>
+                <td>Checks if all children of each course exist in completed set; handles elective groups with single credit tally.</td>
+              </tr>
+              <tr>
+                <td><strong>Curriculum Credit Rollup</strong></td>
+                <td>Post-order Traversal Sum</td>
+                <td><span class="badge badge-cyan">O(N)</span></td>
+                <td>Bottom-up sum: Course credits &rarr; Elective Group (counted once) &rarr; Semester &rarr; Year &rarr; Degree (172 Cr).</td>
+              </tr>
+              <tr>
+                <td><strong>Common Ancestor (LCA)</strong></td>
+                <td>Lowest Common Ancestor via Parent Pointers</td>
+                <td><span class="badge badge-cyan">O(h)</span></td>
+                <td>Traces parent pointers upward to degree root; determines if courses share a semester, year, or only the degree.</td>
+              </tr>
+              <tr>
+                <td><strong>Progression & Cycle Validator</strong></td>
+                <td>Recursion Stack Visiting Set &amp; Parent Pointers</td>
+                <td><span class="badge badge-cyan">O(C + E)</span></td>
+                <td>Ensures prerequisite semesters are strictly earlier than course semesters via parent pointer traversal.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Viva FAQ Cards -->
+      <div class="card faq-card">
+        <div class="card-header">
+          <h3>Top 10 Viva Questions & Answers (KKWIEER Syllabus Defense)</h3>
+          <span class="badge badge-purple">Mini Project Defense</span>
+        </div>
+        <div class="card-body">
+          <div class="faq-item">
+            <h4 class="faq-question">Q1: Why did you choose a Tree structure rather than a Graph for course prerequisites?</h4>
+            <p class="faq-answer">
+              A tree provides a strict hierarchy centered on a specific target course as the root. Tree height directly models the critical prerequisite chain (minimum sequential semesters required); leaf nodes immediately pinpoint foundational entry points; post-order cleanly rolls up credit sums; and pre-order creates intuitive visual branches.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q2: Why are shared prerequisites repeated under different branches in the prerequisite tree?</h4>
+            <p class="faq-answer">
+              In a true tree, every node (except the root) must have <strong>exactly one parent</strong>. For example, in <em>Augmented Reality and Virtual Reality [2301306B]</em>, both <em>Data Structures Lab [2301215]</em> and <em>OOP &amp; CG Lab [2301205]</em> require <em>Programming in C [2300108A]</em>. Pointing both parents to a single shared node would create multiple parent edges, making it a Directed Acyclic Graph (DAG). Replicating the node preserves true tree properties and allows independent subtree traversals.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q3: What is the primary limitation of a Tree compared to a DAG for course prerequisites?</h4>
+            <p class="faq-answer">
+              The fundamental trade-off is <strong>node duplication</strong>. In dense prerequisite networks, shared foundational courses are replicated across multiple subtrees, causing the tree node count to exceed the number of unique courses (e.g. AR &amp; VR has 11 subtree nodes for 7 unique prerequisites). A DAG avoids repetition, but requires general graph algorithms like Kahn's or Tarjan's.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q4: Walk through the longest prerequisite chain in the KKWIEER syllabus.</h4>
+            <p class="faq-answer">
+              The maximum tree height in the entire syllabus is <strong>5 semesters</strong>. A prime example is <em>Deep Learning [2301401]</em>:  
+              <strong>Sem 2:</strong> Computational Thinking and Problem Solving [2300118A] &rarr;  
+              <strong>Sem 4:</strong> Data Structures [2301212] &rarr;  
+              <strong>Sem 5:</strong> Database Management Systems [2301303] &rarr;  
+              <strong>Sem 6:</strong> Data Science and Big Data [2301311] &rarr;  
+              <strong>Sem 7:</strong> Deep Learning [2301401].
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q5: Which course in the KKWIEER syllabus is the most critical bottleneck?</h4>
+            <p class="faq-answer">
+              <strong>Data Structures [2301212]</strong> in Semester 4 is the largest academic bottleneck, having <strong>8 direct dependents</strong>: <em>DSA [2301301]</em>, <em>AI [2311302]</em>, <em>DBMS [2301303]</em>, <em>DBMS Lab [2301304]</em>, <em>AR &amp; VR [2301306B]</em>, <em>AR &amp; VR Lab [2301307B]</em>, <em>High Performance Computing [2301315C]</em>, and <em>Operation Research [2301406A]</em>.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q6: How are Elective Groups handled during post-order credit summation?</h4>
+            <p class="faq-answer">
+              Courses belonging to the same elective group (e.g. Elective I in Sem 5: IoT, AR/VR, STQA) are academic alternatives. In our Curriculum Tree, an intermediate <code>isElectiveGroup</code> node sits between Semester and Course. During post-order traversal, the group node takes the credit value of its first child (e.g. 3 credits) once, rather than summing all alternatives, guaranteeing the semester total matches exactly (22 credits) and degree total equals 172 credits.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q7: How do you check that prerequisites are always in earlier semesters using Tree concepts?</h4>
+            <p class="faq-answer">
+              We do not use graph topological sort. Instead, each course node in the Curriculum Tree maintains a <code>parent</code> pointer. By following parent pointers upwards until reaching a <code>Semester X</code> node, we extract the semester number of the course and its prerequisite in $O(h)$ time, and assert that <code>prereqSemester &lt; courseSemester</code>.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q8: How does cycle detection work during tree construction?</h4>
+            <p class="faq-answer">
+              During recursive tree construction (<code>buildPrereqTree</code>), we pass a <code>visitingSet</code> representing the current recursion call stack. If a course code is encountered that already exists in <code>visitingSet</code>, a circular dependency is immediately detected and recursion safely stops, preventing infinite call stack overflow.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q9: How is Lowest Common Ancestor (LCA) computed in the Curriculum Tree?</h4>
+            <p class="faq-answer">
+              Using parent pointers, we trace paths from Course A and Course B back to the degree root. We then align the two path vectors from the root downwards; the last identical ancestor node before paths diverge is the LCA. If the LCA is a Semester, both courses can be taken concurrently; if a Year, they belong to the same academic year; if Degree, they belong to different years.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h4 class="faq-question">Q10: How does the Undo feature operate?</h4>
+            <p class="faq-answer">
+              It employs the <strong>Command Pattern</strong> backed by an <code>std::stack&lt;UndoAction&gt;</code>. Whenever a course or prerequisite is added or removed, the previous state is pushed onto the stack. Selecting "Undo" pops the top action and executes its exact inverse operation in $O(1)$ time, safely rebuilding tree parent-child linkages and recalculating credit rollups.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>Course Prerequisite Planner • KKWIEER Nashik B.Tech Computer Engineering (2023 Pattern) • DSA Mini Project Competition</p>
+    <p class="footer-disclaimer">Planning guidance only; the official college notice governs.</p>
+  </footer>
+
+  <!-- Single source of truth data + vanilla JS controller -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
